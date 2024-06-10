@@ -1,11 +1,20 @@
 import React from "react";
-import { StyleSheet, Image, View, SafeAreaView } from "react-native";
+import { StyleSheet, Image, View } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 function ViewImageScreen(props) {
   return (
     <View style={styles.container}>
-      <View style={styles.closeButton} />
-      <View style={styles.deleteButton} />
+      <View style={styles.closeButton}>
+        <MaterialCommunityIcons name="close" color="white" size={35} />
+      </View>
+      <View style={styles.deleteButton}>
+        <MaterialCommunityIcons
+          name="trash-can-outline"
+          color="white"
+          size={35}
+        />
+      </View>
       <Image
         resizeMode="contain"
         style={styles.productImage}
@@ -30,7 +39,6 @@ const styles = StyleSheet.create({
   },
 
   closeButton: {
-    backgroundColor: "#4ECDC4",
     width: 50,
     height: 50,
     position: "absolute",
@@ -38,7 +46,6 @@ const styles = StyleSheet.create({
     left: 30,
   },
   deleteButton: {
-    backgroundColor: "#fc5c65",
     width: 40,
     height: 40,
     position: "absolute",

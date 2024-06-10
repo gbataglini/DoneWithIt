@@ -1,18 +1,33 @@
 import React from "react";
 import { ImageBackground, StyleSheet, View, Image, Text } from "react-native";
+import AppButton from "../components/AppButton";
 
 function WelcomeScreen(props) {
   return (
     <ImageBackground
       source={require("../assets/background.jpg")}
       style={styles.background}
+      blurRadius={10}
     >
       <View style={styles.logoContainer}>
         <Image source={require("../assets/logo-red.png")} style={styles.logo} />
-        <Text>Sell what you don't need</Text>
+        <Text style={styles.tagline}>Sell what you don't need</Text>
       </View>
-      <View style={styles.loginButton}></View>
-      <View style={styles.registerButton}></View>
+      <View style={styles.buttonsContainer}>
+        <AppButton
+          title={"login"}
+          onPress={() => {
+            console.log("yo");
+          }}
+        />
+        <AppButton
+          title={"sign up"}
+          onPress={() => {
+            console.log("hi");
+          }}
+          colour="secondary"
+        />
+      </View>
     </ImageBackground>
   );
 }
@@ -23,20 +38,20 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     alignItems: "center",
   },
-  loginButton: {
-    width: "100%",
-    backgroundColor: "#fc5c65",
-    height: 70,
-  },
-  registerButton: {
-    width: "100%",
-    backgroundColor: "#4ECDC4",
-    height: 70,
-  },
   logoContainer: { position: "absolute", top: 70, alignItems: "center" },
   logo: {
     width: 100,
     height: 100,
+  },
+  buttonsContainer: {
+    padding: 20,
+    width: "100%",
+  },
+  tagline: {
+    fontSize: 25,
+    fontWeight: "600",
+    paddingVertical: 20,
+    textTransform: "capitalize",
   },
 });
 
