@@ -34,7 +34,8 @@ function AppPicker({
               style={styles.icon}
             />
           )}
-          <AppText style={styles.text}>
+
+          <AppText style={selectedItem ? styles.text : styles.placeholder}>
             {selectedItem ? selectedItem.label : placeholder}
           </AppText>
           <MaterialCommunityIcons
@@ -81,6 +82,9 @@ const styles = StyleSheet.create({
   },
   text: {
     flex: 1,
+  },
+  placeholder: {
+    color: defaultStyles.colours.medium,
   },
 });
 export default AppPicker;
