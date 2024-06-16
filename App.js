@@ -14,13 +14,14 @@ import MyAccountScreen from "./app/screens/MyAccountScreen";
 import ListingsScreen from "./app/screens/ListingsScreen";
 import AppTextInput from "./app/components/AppTextInput";
 import Screen from "./app/components/Screen";
+import AppPicker from "./app/components/AppPicker";
+import { useState } from "react";
+import LoginScreen from "./app/screens/LoginScreen";
 
 export default function App() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <Screen>
-        <AppTextInput iconName={"email"} placeholder={"Username"} />
-      </Screen>
+      <LoginScreen />
     </GestureHandlerRootView>
   );
 }
