@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { Switch, View } from "react-native";
 import {
   useDimensions,
   useDeviceOrientation,
@@ -12,11 +12,15 @@ import MessagesScreen from "./app/screens/MessagesScreen";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import MyAccountScreen from "./app/screens/MyAccountScreen";
 import ListingsScreen from "./app/screens/ListingsScreen";
+import AppTextInput from "./app/components/AppTextInput";
+import Screen from "./app/components/Screen";
 
 export default function App() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <ListingsScreen />
+      <Screen>
+        <AppTextInput iconName={"email"} placeholder={"Username"} />
+      </Screen>
     </GestureHandlerRootView>
   );
 }
