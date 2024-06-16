@@ -16,16 +16,19 @@ import PickerItem from "./PickerItem";
 function AppPicker({
   iconName,
   items,
+  numberOfColumns = 1,
   onSelectItem,
+  PickerItemComponent = PickerItem,
   selectedItem,
   placeholder,
+  width = "100%",
 }) {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
-        <View style={styles.container}>
+        <View style={[styles.container, { width }]}>
           {iconName && (
             <MaterialCommunityIcons
               name={iconName}
@@ -51,8 +54,10 @@ function AppPicker({
           <FlatList
             data={items}
             keyExtractor={(item) => item.value.toString()}
+            numColumns={numberOfColumns}
             renderItem={({ item }) => (
-              <PickerItem
+              <PickerItemComponent
+                item={item}
                 label={item.label}
                 onPress={() => {
                   setModalVisible(false);
@@ -72,7 +77,6 @@ const styles = StyleSheet.create({
     backgroundColor: defaultStyles.colours.light,
     borderRadius: 25,
     flexDirection: "row",
-    width: "100%",
     padding: 15,
     marginVertical: 10,
   },
@@ -85,6 +89,7 @@ const styles = StyleSheet.create({
   },
   placeholder: {
     color: defaultStyles.colours.medium,
+    flex: 1,
   },
 });
 export default AppPicker;
